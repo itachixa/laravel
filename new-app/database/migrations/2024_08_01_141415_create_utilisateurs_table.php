@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        shema::create ('prduit',function(Blueprint $table)){
+        Schema::create('utilisateurs2', function (Blueprint $table) {
             $table->id();
-            $table->string('nom');
-            $table->string('description');
-            $table->float('prix');
-            $table->integer('stock');
+            $table->string('name'); // Name field
+            $table->string('email')->unique(); // Unique email field
+            $table->string('phone')->nullable(); // Phone number field, nullable
+            $table->string('password'); // Password field
             $table->timestamps();
-        }
+
+        });
     }
 
     /**
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('utilisateurs');
     }
 };

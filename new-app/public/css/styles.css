@@ -1,0 +1,92 @@
+/* styles.css */
+
+/* Style général pour le corps de la page */
+body {
+    background-color: #f8f9fa; /* Couleur de fond grise très claire */
+    font-family: Arial, sans-serif; /* Police de caractères */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Style pour le titre principal */
+h1 {
+    color: #007bff; /* Couleur du titre en bleu */
+    margin-top: 20px; /* Espacement supérieur */
+    font-size: 2rem; /* Taille de police */
+}
+
+/* Style pour les colonnes dans la row */
+.row {
+    display: flex;
+    justify-content: center; /* Centre les colonnes horizontalement */
+    margin-top: 20px; /* Espacement supérieur */
+    width: 100%;
+    max-width: 1200px; /* Largeur maximale */
+    flex-wrap: wrap; /* Permet aux colonnes de se réorganiser en cas de besoin */
+}
+
+/* Style pour chaque colonne */
+.col {
+    background-color: #ffffff; /* Couleur de fond des colonnes */
+    border: 1px solid #007bff; /* Bordure bleue */
+    border-radius: 8px; /* Coins arrondis */
+    padding: 20px; /* Espacement intérieur */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Ombre légère */
+    margin: 10px; /* Espacement extérieur */
+    flex: 1; /* Colonne prend l'espace disponible */
+    max-width: 500px; /* Largeur maximale */
+    height: auto; /* Hauteur automatique pour s'adapter au contenu */
+    text-align: center; /* Centre le texte et les boutons */
+}   
+
+/* Style pour les titres dans les colonnes */
+.col h2 {
+    color: #007bff; /* Couleur du titre en bleu */
+    margin-bottom: 20px; /* Espacement inférieur */
+}
+
+/* Styles généraux pour les boutons */
+button {
+    color: #ffffff; /* Couleur du texte des boutons en blanc */
+    border: none; /* Supprime la bordure */
+    border-radius: 5px; /* Coins arrondis */
+    padding: 10px 20px; /* Espacement intérieur */
+    margin: 5px; /* Espacement extérieur */
+    cursor: pointer; /* Curseur pointeur */
+    font-size: 1rem; /* Taille de police */
+    transition: background-color 0.3s ease; /* Transition pour le changement de couleur */
+    display: inline-block; /* Assure que les boutons s'alignent correctement */
+}
+
+/* Boutons avec couleurs spécifiques */
+.button-add {
+    background-color: #28a745; /* Vert pour ajouter */
+}
+
+.button-modify {
+    background-color: #ffc107; /* Jaune pour modifier */
+}
+
+.button-delete {
+    background-color: #dc3545; /* Rouge pour supprimer */
+}
+
+.button-list {
+    background-color: #007bff; /* Bleu pour lister */
+}
+
+.button-search {
+    background-color: #17a2b8; /* Cyan pour rechercher */
+}
+
+.button-exit {
+    background-color: #6c757d; /* Gris pour sortir */
+}
+
+/* Couleur de fond au survol pour les boutons */
+button:hover {
+    filter: brightness(85%); /* Réduit la luminosité des boutons au survol */
+}
