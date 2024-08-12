@@ -90,3 +90,67 @@ button {
 button:hover {
     filter: brightness(85%); /* Réduit la luminosité des boutons au survol */
 }
+
+.form-section {
+    display: none; /* Masquer les sections par défaut */
+}
+.form-section.active {
+    display: block; /* Afficher la section active */
+}
+.user-list, .search-results {
+    margin-top: 20px;
+}
+.user-list ul, .search-results ul {
+    list-style-type: none;
+    padding: 0;
+}
+.user-list li, .search-results li {
+    border-bottom: 1px solid #ddd;
+    padding: 8px 0;
+}
+.button-add {
+    background-color: #28a745; /* Couleur de fond verte */
+    color: white; /* Couleur du texte */
+}
+.button-modify {
+    background-color: #ffc107; /* Couleur de fond jaune */
+    color: black; /* Couleur du texte */
+}
+.button-delete {
+    background-color: #dc3545; /* Couleur de fond rouge */
+    color: white; /* Couleur du texte */
+}
+.button-list {
+    background-color: #007bff; /* Couleur de fond bleue */
+    color: white; /* Couleur du texte */
+}
+.button-add:hover {
+    background-color: #218838; /* Couleur de fond verte foncée au survol */
+}
+.button-modify:hover {
+    background-color: #e0a800; /* Couleur de fond jaune foncé au survol */
+}
+.button-delete:hover {
+    background-color: #c82333; /* Couleur de fond rouge foncé au survol */
+}
+.button-list:hover {
+    background-color: #0056b3; /* Couleur de fond bleue foncée au survol */
+}
+/* styles.css */
+.button-selected {
+    background-color: red; /* Couleur de fond rouge */
+    color: white; /* Couleur du texte */
+    border: none; /* Supprime la bordure */
+    padding: 10px 20px; /* Ajoute de l'espace intérieur */
+    text-align: center; /* Centre le texte */
+    text-decoration: none; /* Supprime le soulignement du texte */
+    display: inline-block; /* Affiche le bouton en ligne */
+    font-size: 16px; /* Taille de police */
+    margin: 4px 2px; /* Marge autour du bouton */
+    cursor: pointer; /* Change le curseur en pointeur */
+    border-radius: 4px; /* Coins arrondis */
+}
+
+.button-selected:hover {
+    background-color: darkred; /* Couleur de fond rouge foncé au survol */
+}

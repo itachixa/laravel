@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestionnaire des utilisateurs</title>
     <link rel="stylesheet" href="{{ asset('css/styles.css') }}">
-    <meta name="csrf-token" content="{{ csrf_token() }}">
     <style>
         .form-section {
             display: none; /* Masquer les sections par défaut */
@@ -39,52 +38,59 @@
             <button class="button-modify" onclick="showForm('modify')">Modifier un compte</button>
             <button class="button-delete" onclick="showForm('delete')">Supprimer un compte</button>
             <button class="button-list" onclick="showForm('list')">Lister tous les comptes</button>
+            <!-- Boutons "Sortir" et "Rechercher" supprimés -->
         </div>
         <div class="col">
-            <!-- Formulaire d'ajout -->
             <div id="add-form" class="form-section">
                 <h3>Ajouter un compte</h3>
-                <form id="add-form-action" method="POST" action="{{ route('users.store') }}">
+                <form action="{{ route('users.store') }}" method="POST">
                     @csrf
                     <input type="text" name="name" placeholder="Nom" required>
                     <input type="email" name="email" placeholder="Email" required>
-                    <input type="text" name="phone" placeholder="Numéro de téléphone">
+                    <input type="text" name="phone" placeholder="Numéro de téléphone" required>
                     <input type="password" name="password" placeholder="Mot de passe" required>
                     <input type="password" name="password_confirmation" placeholder="Confirmer le mot de passe" required>
-                    <button type="button" onclick="submitForm('add-form-action')">Ajouter</button>
+                    <button class="button-add" type="submit">Ajouter un compte</button>
                 </form>
             </div>
 
-            <!-- Formulaire de modification -->
             <div id="modify-form" class="form-section">
                 <h3>Modifier un compte</h3>
-                <form id="modify-form-action" method="POST" action="{{ route('users.update', ':id') }}">
+                <form id="modify-form-action" action="{{ route('users.update') }}" method="POST">
                     @csrf
-                    @method('PUT')
-                    <input type="hidden" name="id" id="update-id">
-                    <input type="text" name="name" id="update-name" placeholder="Nom">
-                    <input type="text" name="phone" id="update-phone" placeholder="Numéro de téléphone">
-                    <input type="password" name="password" id="update-password" placeholder="Mot de passe">
-                    <input type="password" name="password_confirmation" id="update-password-confirmation" placeholder="Confirmer le mot de passe">
-                    <button type="button" onclick="submitForm('modify-form-action')">Modifier</button>
+                    <input type="hidden" name="id" id="update-id"> <!-- ID de l'utilisateur prérempli -->
+                    <div class="form-group">
+                        <label for="update-name">Nom :</label>
+                        <input type="text" name="name" id="update-name" placeholder="Nom">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-phone">Numéro de téléphone :</label>
+                        <input type="text" name="phone" id="update-phone" placeholder="Numéro de téléphone">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-password">Mot de passe :</label>
+                        <input type="password" name="password" id="update-password" placeholder="Mot de passe">
+                    </div>
+                    <div class="form-group">
+                        <label for="update-password-confirmation">Confirmer le mot de passe :</label>
+                        <input type="password" name="password_confirmation" id="update-password-confirmation" placeholder="Confirmer le mot de passe">
+                    </div>
+                    <button class="button-modify" type="submit">Modifier le compte</button>
                 </form>
             </div>
 
-            <!-- Formulaire de suppression -->
             <div id="delete-form" class="form-section">
                 <h3>Supprimer un compte</h3>
                 <div id="delete-options" class="user-list">
                     <!-- Liste des comptes pour la suppression -->
                 </div>
-                <form id="delete-form-action" method="POST">
+                <form action="{{ route('users.destroy') }}" method="POST">
                     @csrf
-                    @method('DELETE')
                     <input type="hidden" name="id" id="delete-id">
-                    <button type="button" onclick="submitForm('delete-form-action')">Supprimer</button>
+                    <button class="button-delete" type="submit">Supprimer ce compte</button>
                 </form>
             </div>
 
-            <!-- Liste des comptes -->
             <div id="list-form" class="form-section">
                 <h3>Liste des comptes</h3>
                 <div id="user-list" class="user-list">
@@ -114,51 +120,37 @@
             }
         }
 
-        async function submitForm(formId) {
-            const form = document.getElementById(formId);
-            const formData = new FormData(form);
-            const method = formId === 'delete-form-action' ? 'DELETE' : formId === 'modify-form-action' ? 'PUT' : 'POST';
-
-            try {
-                const url = form.action.replace(':id', document.getElementById('update-id')?.value || document.getElementById('delete-id')?.value);
-                const response = await fetch(url, {
-                    method: method,
-                    headers: {
-                        'X-Requested-With': 'XMLHttpRequest',
-                        'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                    },
-                    body: formData
-                });
-
-                const result = await response.json();
-
-                if (response.ok) {
-                    alert(result.message || 'Opération réussie!');
-                    if (formId === 'list-form') {
-                        loadUserList();
-                    }
-                } else {
-                    alert('Erreur: ' + (result.message || 'Une erreur est survenue.'));
-                }
-            } catch (error) {
-                console.error('Erreur lors de l\'envoi de la requête:', error);
-                alert('Erreur lors de l\'envoi de la requête.');
-            }
+        function hideAllForms() {
+            const sections = document.querySelectorAll('.form-section');
+            sections.forEach(section => section.classList.remove('active'));
         }
 
-        async function loadUserList() {
-            try {
-                const response = await fetch('{{ route('users.list') }}'),
-                const data = await response.json();
-                const userList = document.getElementById('user-list');
-                userList.innerHTML = data.map(user => `
-                    <div>${user.name} (${user.email})
-                        <button onclick="selectUser('${user.id}', '${user.name}', '${user.phone}')">Sélectionner</button>
-                    </div>
-                `).join('');
-            } catch (error) {
-                console.error('Erreur lors du chargement des utilisateurs:', error);
-            }
+        function populateUserList(users) {
+            const userList = document.getElementById('user-list');
+            userList.innerHTML = ''; // Vider la liste existante
+
+            const ul = document.createElement('ul');
+            users.forEach(user => {
+                const li = document.createElement('li');
+                li.innerHTML = `${user.name} (${user.email})
+                    <button onclick="selectUser('${user.id}', '${user.name}', '${user.phone}')">Sélectionner</button>`;
+                ul.appendChild(li);
+            });
+            userList.appendChild(ul);
+        }
+
+        function populateDeleteOptions(users) {
+            const deleteOptions = document.getElementById('delete-options');
+            deleteOptions.innerHTML = ''; // Vider la liste existante
+
+            const ul = document.createElement('ul');
+            users.forEach(user => {
+                const li = document.createElement('li');
+                li.innerHTML = `${user.name} (${user.email})
+                    <button onclick="confirmDelete('${user.id}')">Sélectionner</button>`;
+                ul.appendChild(li);
+            });
+            deleteOptions.appendChild(ul);
         }
 
         function selectUser(id, name, phone) {
@@ -168,24 +160,23 @@
             showForm('modify');
         }
 
-        async function loadDeleteOptions() {
-            try {
-                const response = await fetch('{{ route('users.list') }}');
-                const data = await response.json();
-                const deleteOptions = document.getElementById('delete-options');
-                deleteOptions.innerHTML = data.map(user => `
-                    <div>${user.name} (${user.email})
-                        <button onclick="confirmDelete('${user.id}')">Sélectionner</button>
-                    </div>
-                `).join('');
-            } catch (error) {
-                console.error('Erreur lors du chargement des utilisateurs pour suppression:', error);
-            }
-        }
-
         function confirmDelete(id) {
             document.getElementById('delete-id').value = id;
             showForm('delete');
+        }
+
+        function loadUserList() {
+            fetch('{{ route('users.list') }}') // Remplacez par votre route Laravel
+                .then(response => response.json())
+                .then(data => populateUserList(data))
+                .catch(error => console.error('Erreur lors du chargement des utilisateurs:', error));
+        }
+
+        function loadDeleteOptions() {
+            fetch('{{ route('users.list') }}') // Remplacez par votre route Laravel
+                .then(response => response.json())
+                .then(data => populateDeleteOptions(data))
+                .catch(error => console.error('Erreur lors du chargement des utilisateurs pour suppression:', error));
         }
     </script>
 </body>
