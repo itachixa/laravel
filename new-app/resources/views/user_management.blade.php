@@ -38,7 +38,6 @@
             <button class="button-modify" onclick="showForm('modify')">Modifier un compte</button>
             <button class="button-delete" onclick="showForm('delete')">Supprimer un compte</button>
             <button class="button-list" onclick="showForm('list')">Lister tous les comptes</button>
-            <!-- Boutons "Sortir" et "Rechercher" supprimés -->
         </div>
         <div class="col">
             <div id="add-form" class="form-section">
@@ -56,9 +55,10 @@
 
             <div id="modify-form" class="form-section">
                 <h3>Modifier un compte</h3>
-                <form id="modify-form-action" action="{{ route('users.update') }}" method="POST">
+                <form id="modify-form-action" method="POST">
                     @csrf
-                    <input type="hidden" name="id" id="update-id"> <!-- ID de l'utilisateur prérempli -->
+                    @method('PUT') <!-- Ajout de la méthode PUT pour la mise à jour -->
+                    <input type="hidden" name="id" id="update-id">
                     <div class="form-group">
                         <label for="update-name">Nom :</label>
                         <input type="text" name="name" id="update-name" placeholder="Nom">
@@ -84,8 +84,9 @@
                 <div id="delete-options" class="user-list">
                     <!-- Liste des comptes pour la suppression -->
                 </div>
-                <form action="{{ route('users.destroy') }}" method="POST">
+                <form id="delete-form-action" method="POST">
                     @csrf
+                    @method('DELETE') <!-- Ajout de la méthode DELETE pour la suppression -->
                     <input type="hidden" name="id" id="delete-id">
                     <button class="button-delete" type="submit">Supprimer ce compte</button>
                 </form>
@@ -157,11 +158,21 @@
             document.getElementById('update-id').value = id;
             document.getElementById('update-name').value = name;
             document.getElementById('update-phone').value = phone;
+
+            // Met à jour l'action du formulaire avec l'ID sélectionné
+            const formAction = `{{ url('users') }}/${id}`;
+            document.getElementById('modify-form-action').action = formAction;
+
             showForm('modify');
         }
 
         function confirmDelete(id) {
             document.getElementById('delete-id').value = id;
+
+            // Met à jour l'action du formulaire avec l'ID sélectionné
+            const formAction = `{{ url('users') }}/${id}`;
+            document.getElementById('delete-form-action').action = formAction;
+
             showForm('delete');
         }
 

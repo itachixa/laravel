@@ -2,6 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\RegisterController;
+use Illuminate\Support\Facades\DB;
 
 Route::get('/', function () {
     return view('welcome');
@@ -22,6 +25,22 @@ Route::get('/home', function () {
 Route::get('/register', function () {
     return view('Register');
 })->name('register');
+Route::get('/test', function () {
+    return view('Test');
+})->name('test');
+Route::get('/gestion', function () {
+    return view('Gestion');
+})->name('gestion');
+
+
+Route::get('/login', function () {
+    return view('Login');
+})->name('login');
+
+
+// routes/web.php
+Route::post('/login', [LoginController::class, 'login'])->name('login.post');
+Route::post('/register', [RegisterController::class, 'register'])->name('register.post');
 
 Route::get('/Administration', function () {
     return view('user_management');
@@ -29,20 +48,25 @@ Route::get('/Administration', function () {
 
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 
-// Route pour stocker un nouvel utilisateur
-Route::post('/users', [UserController::class, 'store'])->name('users.store');
 
-// Route pour afficher le formulaire de modification d'utilisateur
-Route::get('/users/{id}/edit', [UserController::class, 'edit'])->name('users.edit');
+Route::get('/test-db', function () {
+    try {
+        // Tentative de connexion à la base de données MySQL
+        DB::connection()->getPdo();
+        return 'Connexion MySQL réussie';
+    } catch (\Exception $e) {
+        // En cas d'échec de la connexion, afficher l'erreur
+        return 'Échec de la connexion MySQL : ' . $e->getMessage();
+    }
+});
 
-// Route pour mettre à jour un utilisateur existant
-Route::put('/users/{id}', [UserController::class, 'update'])->name('users.update');
 
-// Route pour supprimer un utilisateur
-Route::delete('/users/{id}', [UserController::class, 'destroy'])->name('users.destroy');
-
-// Route pour afficher la liste des utilisateurs
 Route::get('/users', [UserController::class, 'list'])->name('users.list');
+Route::post('/users/store', [UserController::class, 'store'])->name('users.store');
+Route::post('/users/update/{id}', [UserController::class, 'update'])->name('users.update');
+Route::post('/users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
-// Route pour rechercher des utilisateurs
-Route::get('/users/search', [UserController::class, 'search'])->name('users.search');
+// Optionnel: définir une route pour la page d'accueil si elle est utilisée
+Route::get('/', function () {
+    return redirect()->route('users.list');
+});

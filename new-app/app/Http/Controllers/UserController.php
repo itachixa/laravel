@@ -1,85 +1,62 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
 
 class UserController extends Controller
 {
     public function list()
     {
-        $users = User::all(); // Récupère tous les utilisateurs
-        return response()->json($users);
+        $users = User::all();
+        return view('users.list', compact('users'));
     }
 
     public function store(Request $request)
     {
-        // Validation
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:user,email',
             'phone' => 'required|string|max:20',
-            'password' => 'required|confirmed|min:8',
+            'password' => 'required|string|confirmed|min:6',
         ]);
 
-        // Création de l'utilisateur
-        $user = User::create([
+        User::create([
             'name' => $request->name,
             'email' => $request->email,
             'phone' => $request->phone,
             'password' => bcrypt($request->password),
         ]);
 
-        return response()->json($user, 201);
+        return redirect()->route('users.list')->with('success', 'User added successfully');
     }
 
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        // Validation
         $request->validate([
-            'id' => 'required|exists:user,id',
-            'name' => 'nullable|string|max:255',
-            'phone' => 'nullable|string|max:20',
-            'password' => 'nullable|confirmed|min:8',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:user,email,' . $id,
+            'phone' => 'required|string|max:20',
         ]);
 
-        $user = User::find($request->id);
-        if ($user) {
-            if ($request->name !== null) {
-                $user->name = $request->name;
-            }
-            if ($request->phone !== null) {
-                $user->phone = $request->phone;
-            }
-            if ($request->password) {
-                $user->password = bcrypt($request->password);
-            }
-            $user->save();
-        }
-
-        return response()->json($user);
-    }
-
-    public function destroy(Request $request)
-    {
-        // Validation
-        $request->validate([
-            'id' => 'required|exists:user,id',
+        $user = User::find($id);
+        $user->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'address' => $request->address,
         ]);
 
-        $user = User::find($request->id);
-        if ($user) {
-            $user->delete();
-        }
-
-        return response()->json(null, 204);
+        return redirect()->route('users.list')->with('success', 'User updated successfully');
     }
 
-    public function search(Request $request)
+    public function destroy($id)
     {
-        $query = $request->query;
-        $users = User::where('name', 'LIKE', "%$query%")->get();
-        return response()->json($users);
+        User::destroy($id);
+        return redirect()->route('users.list')->with('success', 'User deleted successfully');
     }
 }
