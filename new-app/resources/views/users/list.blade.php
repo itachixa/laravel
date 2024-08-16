@@ -94,7 +94,14 @@
                                                     <label>Phone</label>
                                                     <input type="text" name="phone" class="form-control" value="{{ $user->phone }}" required>
                                                 </div>
-                                                <!-- Note: Password field is omitted here; modify it as needed -->
+                                                <div class="form-group">
+                                                    <label>Password (Leave empty if not changing)</label>
+                                                    <input type="password" name="password" class="form-control">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label>Confirm Password</label>
+                                                    <input type="password" name="password_confirmation" class="form-control">
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
