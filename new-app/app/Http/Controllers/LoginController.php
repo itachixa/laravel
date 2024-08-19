@@ -46,7 +46,7 @@ class LoginController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Connexion réussie, redirection vers la page d'accueil
-            return redirect()->intended('image')->with('success', 'You are logged in!');
+            return redirect()->intended('Acceuil')->with('success', 'You are logged in!');
         }
 
         // Connexion échouée, redirection avec message d'erreur

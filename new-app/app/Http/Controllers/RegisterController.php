@@ -27,6 +27,6 @@ class RegisterController extends Controller
         ]);
 
         // Redirection ou message de succès
-        return redirect()->route('login')->with('success', 'Registration successful. Please log in.');
+        return redirect()->route('Acceuil')->with('success', 'Registration successful. Please log in.');
     }
 }

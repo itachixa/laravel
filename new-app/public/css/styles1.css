@@ -1,0 +1,119 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #333; /* Couleur du texte principal */
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+}
+
+header {
+    background-color: #007bff; /* Bleu primaire */
+    color: white;
+    padding: 10px 0;
+}
+
+header h1 {
+    margin: 0;
+    text-align: center;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+}
+
+.hero {
+    background-color: #e0f7fa; /* Vert clair */
+    padding: 50px 0;
+    text-align: center;
+}
+
+.hero h2 {
+    margin: 0;
+    font-size: 2em;
+    color: #007bff; /* Bleu primaire */
+}
+
+.hero p {
+    font-size: 1.2em;
+    color: #333; /* Couleur du texte principal */
+}
+
+.btn-primary {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff; /* Bleu primaire */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3; /* Bleu primaire plus foncé */
+}
+
+.courses {
+    padding: 50px 0;
+    background-color: #f9f9f9; /* Blanc cassé pour contraste */
+}
+
+.courses h2 {
+    text-align: center;
+    color: #007bff; /* Bleu primaire */
+}
+
+.course-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.course-item {
+    background-color: #007bff; /* Bleu primaire */
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    width: 30%;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.course-item h3 {
+    margin-top: 0;
+}
+
+.about {
+    background-color: #ffffff; /* Blanc */
+    padding: 50px 0;
+    text-align: center;
+}
+
+.about p {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+footer {
+    background-color: #007bff; /* Bleu primaire */
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}

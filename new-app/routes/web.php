@@ -46,6 +46,12 @@ Route::get('/Administration', function () {
     return view('user_management');
 })->name('admin');
 
+
+Route::get('/Acceuil', function () {
+    return view('Acceuil');
+})->name('Acceuil');
+
+
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 
 
