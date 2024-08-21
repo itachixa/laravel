@@ -73,6 +73,6 @@ Route::post('/users/update/{id}', [UserController::class, 'update'])->name('user
 Route::post('/users/destroy/{id}', [UserController::class, 'destroy'])->name('users.destroy');
 
 // Optionnel: définir une route pour la page d'accueil si elle est utilisée
-Route::get('/', function () {
+Route::get('/user/liste', function () {
     return redirect()->route('users.list');
 });
