@@ -1,291 +1,230 @@
-document.addEventListener('DOMContentLoaded', function() {
-    let selectedButton = null;
+/**
+* Template Name: Arsha
+* Template URL: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/
+* Updated: Aug 07 2024 with Bootstrap v5.3.3
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
 
-    async function showForm(formId) {
-        // Masquer toutes les sections
-        const sections = document.querySelectorAll('.form-section');
-        sections.forEach(section => section.classList.remove('active'));
+(function() {
+  "use strict";
 
-        // Afficher la section sélectionnée
-        const selectedSection = document.getElementById(`${formId}-form`);
-        if (selectedSection) {
-            selectedSection.classList.add('active');
+  /**
+   * Apply .scrolled class to the body as the page is scrolled down
+   */
+  function toggleScrolled() {
+    const selectBody = document.querySelector('body');
+    const selectHeader = document.querySelector('#header');
+    if (!selectHeader.classList.contains('scroll-up-sticky') && !selectHeader.classList.contains('sticky-top') && !selectHeader.classList.contains('fixed-top')) return;
+    window.scrollY > 100 ? selectBody.classList.add('scrolled') : selectBody.classList.remove('scrolled');
+  }
 
-            // Charger les données pour les sections appropriées
-            if (formId === 'list') {
-                await loadUserList();
-            } else if (formId === 'delete') {
-                await loadDeleteOptions();
-            }
-        }
+  document.addEventListener('scroll', toggleScrolled);
+  window.addEventListener('load', toggleScrolled);
+
+  /**
+   * Mobile nav toggle
+   */
+  const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
+
+  function mobileNavToogle() {
+    document.querySelector('body').classList.toggle('mobile-nav-active');
+    mobileNavToggleBtn.classList.toggle('bi-list');
+    mobileNavToggleBtn.classList.toggle('bi-x');
+  }
+  mobileNavToggleBtn.addEventListener('click', mobileNavToogle);
+
+  /**
+   * Hide mobile nav on same-page/hash links
+   */
+  document.querySelectorAll('#navmenu a').forEach(navmenu => {
+    navmenu.addEventListener('click', () => {
+      if (document.querySelector('.mobile-nav-active')) {
+        mobileNavToogle();
+      }
+    });
+
+  });
+
+  /**
+   * Toggle mobile nav dropdowns
+   */
+  document.querySelectorAll('.navmenu .toggle-dropdown').forEach(navmenu => {
+    navmenu.addEventListener('click', function(e) {
+      e.preventDefault();
+      this.parentNode.classList.toggle('active');
+      this.parentNode.nextElementSibling.classList.toggle('dropdown-active');
+      e.stopImmediatePropagation();
+    });
+  });
+
+  /**
+   * Preloader
+   */
+  const preloader = document.querySelector('#preloader');
+  if (preloader) {
+    window.addEventListener('load', () => {
+      preloader.remove();
+    });
+  }
+
+  /**
+   * Scroll top button
+   */
+  let scrollTop = document.querySelector('.scroll-top');
+
+  function toggleScrollTop() {
+    if (scrollTop) {
+      window.scrollY > 100 ? scrollTop.classList.add('active') : scrollTop.classList.remove('active');
     }
+  }
+  scrollTop.addEventListener('click', (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  });
 
-    async function submitForm(formId) {
-        const form = document.getElementById(formId);
-        if (!form) {
-            console.error('Formulaire non trouvé:', formId);
-            return;
+  window.addEventListener('load', toggleScrollTop);
+  document.addEventListener('scroll', toggleScrollTop);
+
+  /**
+   * Animation on scroll function and init
+   */
+  function aosInit() {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+      mirror: false
+    });
+  }
+  window.addEventListener('load', aosInit);
+
+  /**
+   * Initiate glightbox
+   */
+  const glightbox = GLightbox({
+    selector: '.glightbox'
+  });
+
+  /**
+   * Init swiper sliders
+   */
+  function initSwiper() {
+    document.querySelectorAll(".init-swiper").forEach(function(swiperElement) {
+      let config = JSON.parse(
+        swiperElement.querySelector(".swiper-config").innerHTML.trim()
+      );
+
+      if (swiperElement.classList.contains("swiper-tab")) {
+        initSwiperWithCustomPagination(swiperElement, config);
+      } else {
+        new Swiper(swiperElement, config);
+      }
+    });
+  }
+
+  window.addEventListener("load", initSwiper);
+
+  /**
+   * Frequently Asked Questions Toggle
+   */
+  document.querySelectorAll('.faq-item h3, .faq-item .faq-toggle').forEach((faqItem) => {
+    faqItem.addEventListener('click', () => {
+      faqItem.parentNode.classList.toggle('faq-active');
+    });
+  });
+
+  /**
+   * Animate the skills items on reveal
+   */
+  let skillsAnimation = document.querySelectorAll('.skills-animation');
+  skillsAnimation.forEach((item) => {
+    new Waypoint({
+      element: item,
+      offset: '80%',
+      handler: function(direction) {
+        let progress = item.querySelectorAll('.progress .progress-bar');
+        progress.forEach(el => {
+          el.style.width = el.getAttribute('aria-valuenow') + '%';
+        });
+      }
+    });
+  });
+
+  /**
+   * Init isotope layout and filters
+   */
+  document.querySelectorAll('.isotope-layout').forEach(function(isotopeItem) {
+    let layout = isotopeItem.getAttribute('data-layout') ?? 'masonry';
+    let filter = isotopeItem.getAttribute('data-default-filter') ?? '*';
+    let sort = isotopeItem.getAttribute('data-sort') ?? 'original-order';
+
+    let initIsotope;
+    imagesLoaded(isotopeItem.querySelector('.isotope-container'), function() {
+      initIsotope = new Isotope(isotopeItem.querySelector('.isotope-container'), {
+        itemSelector: '.isotope-item',
+        layoutMode: layout,
+        filter: filter,
+        sortBy: sort
+      });
+    });
+
+    isotopeItem.querySelectorAll('.isotope-filters li').forEach(function(filters) {
+      filters.addEventListener('click', function() {
+        isotopeItem.querySelector('.isotope-filters .filter-active').classList.remove('filter-active');
+        this.classList.add('filter-active');
+        initIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+        if (typeof aosInit === 'function') {
+          aosInit();
         }
+      }, false);
+    });
 
-        const method = formId === 'delete-form' ? 'DELETE' : formId === 'modify-form' ? 'PUT' : 'POST';
-        const url = formId === 'modify-form' ? getUpdateUrl() : formId === 'delete-form' ? getDeleteUrl() : form.action;
-        const formData = new FormData(form);
+  });
 
-        try {
-            const response = await fetch(url, {
-                method: method,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                },
-                body: method === 'DELETE' ? null : formData
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                alert(result.message || 'Opération réussie!');
-                if (formId === 'list-form') {
-                    await loadUserList();
-                }
-                if (selectedButton) {
-                    selectedButton.classList.remove('button-selected');
-                    selectedButton = null;
-                }
-            } else {
-                alert('Erreur: ' + (result.message || 'Une erreur est survenue.'));
-            }
-        } catch (error) {
-            console.error('Erreur lors de l\'envoi de la requête:', error);
-            alert('Erreur lors de l\'envoi de la requête.');
-        }
+  /**
+   * Correct scrolling position upon page load for URLs containing hash links.
+   */
+  window.addEventListener('load', function(e) {
+    if (window.location.hash) {
+      if (document.querySelector(window.location.hash)) {
+        setTimeout(() => {
+          let section = document.querySelector(window.location.hash);
+          let scrollMarginTop = getComputedStyle(section).scrollMarginTop;
+          window.scrollTo({
+            top: section.offsetTop - parseInt(scrollMarginTop),
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
     }
+  });
 
-    async function loadUserList() {
-        try {
-            const response = await fetch('/users');
-            const data = await response.json();
-            const userList = document.getElementById('user-list');
+  /**
+   * Navmenu Scrollspy
+   */
+  let navmenulinks = document.querySelectorAll('.navmenu a');
 
-            if (userList) {
-                userList.innerHTML = data.map(user => `
-                    <div>
-                        ${user.id}: ${user.name} (${user.email})
-                        <button onclick="selectUser('${user.id}', '${user.name}', '${user.email}', this)">Sélectionner</button>
-                    </div>
-                `).join('');
-            } else {
-                console.error('L\'élément user-list est introuvable.');
-            }
-        } catch (error) {
-            console.error('Erreur lors du chargement des utilisateurs:', error);
-        }
-    }
+  function navmenuScrollspy() {
+    navmenulinks.forEach(navmenulink => {
+      if (!navmenulink.hash) return;
+      let section = document.querySelector(navmenulink.hash);
+      if (!section) return;
+      let position = window.scrollY + 200;
+      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+        document.querySelectorAll('.navmenu a.active').forEach(link => link.classList.remove('active'));
+        navmenulink.classList.add('active');
+      } else {
+        navmenulink.classList.remove('active');
+      }
+    })
+  }
+  window.addEventListener('load', navmenuScrollspy);
+  document.addEventListener('scroll', navmenuScrollspy);
 
-    function selectUser(id, name, email, button) {
-        if (selectedButton) {
-            selectedButton.classList.remove('button-selected');
-        }
-        
-        button.classList.add('button-selected');
-        selectedButton = button;
-
-        document.getElementById('delete-id').value = id;
-        document.getElementById('delete-name').textContent = `${name} (${email})`;
-        document.getElementById('update-id').value = id;
-        document.getElementById('update-name').value = name;
-        document.getElementById('update-phone').value = email;
-        showForm('modify');
-    }
-
-    async function loadDeleteOptions() {
-        try {
-            const response = await fetch('/users');
-            const data = await response.json();
-            const deleteOptions = document.getElementById('delete-options');
-            
-            if (deleteOptions) {
-                deleteOptions.innerHTML = data.map(user => `
-                    <div>
-                        ${user.id}: ${user.name} (${user.email})
-                        <button onclick="confirmDelete('${user.id}', this)">Sélectionner</button>
-                    </div>
-                `).join('');
-            } else {
-                console.error('L\'élément delete-options est introuvable.');
-            }
-        } catch (error) {
-            console.error('Erreur lors du chargement des utilisateurs pour suppression:', error);
-        }
-    }
-
-    function confirmDelete(id, button) {
-        document.getElementById('delete-id').value = id;
-        if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')) {
-            submitForm('delete-form');
-        }
-        if (button) {
-            button.classList.remove('button-selected');
-        }
-    }
-
-    function getUpdateUrl() {
-        const id = document.getElementById('update-id').value;
-        return `/users/${id}`;
-    }
-
-    function getDeleteUrl() {
-        const id = document.getElementById('delete-id').value;
-        return `/users/${id}`;
-    }
-
-    window.showForm = showForm;
-    window.submitForm = submitForm;
-    window.selectUser = selectUser;
-document.addEventListener('DOMContentLoaded', function() {
-    let selectedButton = null;
-
-    async function showForm(formId) {
-        // Masquer toutes les sections
-        const sections = document.querySelectorAll('.form-section');
-        sections.forEach(section => section.classList.remove('active'));
-
-        // Afficher la section sélectionnée
-        const selectedSection = document.getElementById(`${formId}-form`);
-        if (selectedSection) {
-            selectedSection.classList.add('active');
-
-            // Charger les données pour les sections appropriées
-            if (formId === 'list') {
-                await loadUserList();
-            } else if (formId === 'delete') {
-                await loadDeleteOptions();
-            }
-        }
-    }
-
-    async function submitForm(formId) {
-        const form = document.getElementById(formId);
-        if (!form) {
-            console.error('Formulaire non trouvé:', formId);
-            return;
-        }
-
-        const method = formId === 'delete-form' ? 'DELETE' : formId === 'modify-form' ? 'PUT' : 'POST';
-        const url = formId === 'modify-form' ? getUpdateUrl() : formId === 'delete-form' ? getDeleteUrl() : form.action;
-        const formData = new FormData(form);
-
-        try {
-            const response = await fetch(url, {
-                method: method,
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest',
-                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-                },
-                body: method === 'DELETE' ? null : formData
-            });
-
-            const result = await response.json();
-
-            if (response.ok) {
-                alert(result.message || 'Opération réussie!');
-                if (formId === 'list-form') {
-                    await loadUserList();
-                }
-                if (selectedButton) {
-                    selectedButton.classList.remove('button-selected');
-                    selectedButton = null;
-                }
-            } else {
-                alert('Erreur: ' + (result.message || 'Une erreur est survenue.'));
-            }
-        } catch (error) {
-            console.error('Erreur lors de l\'envoi de la requête:', error);
-            alert('Erreur lors de l\'envoi de la requête.');
-        }
-    }
-
-    async function loadUserList() {
-        try {
-            const response = await fetch('/users');
-            const data = await response.json();
-            const userList = document.getElementById('user-list');
-
-            if (userList) {
-                userList.innerHTML = data.map(user => `
-                    <div>
-                        ${user.id}: ${user.name} (${user.email})
-                        <button onclick="selectUser('${user.id}', '${user.name}', '${user.email}', this)">Sélectionner</button>
-                    </div>
-                `).join('');
-            } else {
-                console.error('L\'élément user-list est introuvable.');
-            }
-        } catch (error) {
-            console.error('Erreur lors du chargement des utilisateurs:', error);
-        }
-    }
-
-    function selectUser(id, name, email, button) {
-        if (selectedButton) {
-            selectedButton.classList.remove('button-selected');
-        }
-        
-        button.classList.add('button-selected');
-        selectedButton = button;
-
-        document.getElementById('delete-id').value = id;
-        document.getElementById('delete-name').textContent = `${name} (${email})`;
-        document.getElementById('update-id').value = id;
-        document.getElementById('update-name').value = name;
-        document.getElementById('update-email').value = email;
-        showForm('modify');
-    }
-
-    async function loadDeleteOptions() {
-        try {
-            const response = await fetch('/users');
-            const data = await response.json();
-            const deleteOptions = document.getElementById('delete-options');
-            
-            if (deleteOptions) {
-                deleteOptions.innerHTML = data.map(user => `
-                    <div>
-                        ${user.id}: ${user.name} (${user.email})
-                        <button onclick="confirmDelete('${user.id}', this)">Sélectionner</button>
-                    </div>
-                `).join('');
-            } else {
-                console.error('L\'élément delete-options est introuvable.');
-            }
-        } catch (error) {
-            console.error('Erreur lors du chargement des utilisateurs pour suppression:', error);
-        }
-    }
-
-    function confirmDelete(id, button) {
-        document.getElementById('delete-id').value = id;
-        if (confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur?')) {
-            submitForm('delete-form');
-        }
-        if (button) {
-            button.classList.remove('button-selected');
-        }
-    }
-
-    function getUpdateUrl() {
-        const id = document.getElementById('update-id').value;
-        return `/users/${id}`;
-    }
-
-    function getDeleteUrl() {
-        const id = document.getElementById('delete-id').value;
-        return `/users/${id}`;
-    }
-
-    window.showForm = showForm;
-    window.submitForm = submitForm;
-    window.selectUser = selectUser;
-    window.confirmDelete = confirmDelete;
-});
-});
+})();

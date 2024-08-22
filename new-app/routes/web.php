@@ -51,6 +51,10 @@ Route::get('/Acceuil', function () {
     return view('Acceuil');
 })->name('Acceuil');
 
+Route::get('/Home', function () {
+    return view('Home');
+})->name('Home');
+
 
 Route::get('/users/create', [UserController::class, 'create'])->name('users.create');
 

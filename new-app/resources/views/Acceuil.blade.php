@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <div class="container"> <img src="{{ asset('images/image.webp') }}" alt="Suisco Logo" class="logo">
+        <div class="container"> <img src="{{ asset('img/image.webp') }}" alt="Suisco Logo" class="logo">
             <h1>Suisco</h1>
             <nav>
                 <ul>
