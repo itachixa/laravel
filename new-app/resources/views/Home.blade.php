@@ -15,7 +15,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect">
     <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Jost:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
     <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
@@ -43,7 +43,7 @@
 
             <a href="index.html" class="logo d-flex align-items-center me-auto">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="{{ asset('img/logo.png" alt=""> -->
+                <!-- <img src="{{ asset('img/logo.png') }}" alt=""> -->
                 <h1 class="sitename">Arsha</h1>
             </a>
 
@@ -77,7 +77,7 @@
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
-            <a class="btn-getstarted" href="#about">Get Started</a>
+            <a class="btn-getstarted" href="login">Get Started</a>
 
         </div>
     </header>
@@ -91,15 +91,14 @@
                 <div class="row gy-4">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
                         <h1>Better Solutions For Your Business</h1>
-                        <p>We are team of talented designers making websites with Bootstrap</p>
+                        <p>We are a team of talented designers making websites with Bootstrap</p>
                         <div class="d-flex">
                             <a href="#about" class="btn-get-started">Get Started</a>
                             <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
                         </div>
                     </div>
                     <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-                    <img src="{{ asset('img/hero-img.png') }}" class="img-fluid animated" alt="Hero Image">
-
+                        <img src="{{ asset('img/hero-img.png') }}" class="img-fluid animated" alt="Hero Image">
                     </div>
                 </div>
             </div>
