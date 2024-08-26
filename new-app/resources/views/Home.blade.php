@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Index - Suisco Bootstrap Template</title>
+    <title>Suisco</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -49,27 +49,27 @@
 
             <nav id="navmenu" class="navmenu">
                 <ul>
-                    <li><a href="#hero" class="active">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#hero" class="active">Activité </a></li>
+                    <li><a href="#about">A propos </a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#team">Team</a></li>
-                    <li><a href="#pricing">Pricing</a></li>
-                    <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <li><a href="#team">Equipe</a></li>
+                    <li><a href="#pricing">Tarifs</a></li>
+                    <li class="dropdown"><a href="#"><span>Dérouler</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                         <ul>
-                            <li><a href="#">Dropdown 1</a></li>
-                            <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                            <li><a href="#">Deroule 1</a></li>
+                            <li class="dropdown"><a href="#"><span>Liste déroulante </span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
                                 <ul>
-                                    <li><a href="#">Deep Dropdown 1</a></li>
-                                    <li><a href="#">Deep Dropdown 2</a></li>
-                                    <li><a href="#">Deep Dropdown 3</a></li>
-                                    <li><a href="#">Deep Dropdown 4</a></li>
-                                    <li><a href="#">Deep Dropdown 5</a></li>
+                                    <li><a href="#">Liste déroulante  1</a></li>
+                                    <li><a href="#">Liste déroulante  2</a></li>
+                                    <li><a href="#">Liste déroulante  3</a></li>
+                                    <li><a href="#">Liste déroulante  4</a></li>
+                                    <li><a href="#">Liste déroulante  5</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Dropdown 2</a></li>
-                            <li><a href="#">Dropdown 3</a></li>
-                            <li><a href="#">Dropdown 4</a></li>
+                            <li><a href="#">selection 2</a></li>
+                            <li><a href="#">selection 3</a></li>
+                            <li><a href="#">selcetion  4</a></li>
                         </ul>
                     </li>
                     <li><a href="#contact">Contact</a></li>
@@ -77,7 +77,7 @@
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
 
-            <a class="btn-getstarted" href="login">Get Started</a>
+            <a class="btn-getstarted" href="login">Commmencer des maintenant </a>
 
         </div>
     </header>
@@ -90,10 +90,10 @@
             <div class="container">
                 <div class="row gy-4">
                     <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="zoom-out">
-                        <h1>Better Solutions For Your Business</h1>
-                        <p>We are a team of talented designers making websites with Bootstrap</p>
+                        <h1> De meilleur solution pour votre Business </h1>
+                        <p>Nous vous ouvrons un soutien et une assistance de qualité </p>
                         <div class="d-flex">
-                            <a href="login" class="btn-get-started">Get Started</a>
+                            <a href="login" class="btn-get-started">Commmencer des maintenant</a>
                             <a href="https://www.youtube.com/watch?v=Y7f98aduVJ8" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
                         </div>
                     </div>
@@ -169,7 +169,7 @@
 
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
-                <h2>About Us</h2>
+                <h2> À propos de nous</h2>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -178,19 +178,19 @@
 
                     <div class="col-lg-6 content" data-aos="fade-up" data-aos-delay="100">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                            magna aliqua.
+                        Il est important de prendre soin du patient, le patient sera suivi par le patient, mais cela se produira en même temps que le travail et la douleur.
+                        quelques belles choses
                         </p>
                         <ul>
-                            <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-                            <li><i class="bi bi-check2-circle"></i> <span>Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-                            <li><i class="bi bi-check2-circle"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Je ne travaille pas du tout sauf pour en tirer un avantage.</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Des doutes ou de la douleur irritable dans les réprimandes quant au plaisir qu'il souhaite.</span></li>
+                            <li><i class="bi bi-check2-circle"></i> <span>Je ne travaille pas du tout sauf pour en tirer un bénéfice</span></li>
                         </ul>
                     </div>
 
                     <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-                        <p>Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. </p>
-                        <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+                        <p>Je ne travaille pas du tout sauf pour en tirer un avantage. Ne soyez pas en colère contre la douleur, dans la réprimande, dans le plaisir, il veut être à un cheveu de la douleur dans l'espoir qu'il n'y ait pas de reproduction. À moins qu'ils ne soient aveuglés par la convoitise, ils ne sortent pas ; ceux qui abandonnent leurs devoirs et adoucissent leur cœur sont en faute, c'est-à-dire le travail.</p>
+                        <a href="#" class="read-more"><span>lire plus </span><i class="bi bi-arrow-right"></i></a>
                     </div>
 
                 </div>
@@ -209,9 +209,9 @@
                     <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
 
                         <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-                            <h3><span>Eum ipsam laborum deleniti </span><strong>velit pariatur architecto aut nihil</strong></h3>
+                            <h3><span>Il était soulagé de ses ennuis</span><strong>Il veut être marié à un architecte ou rien</strong></h3>
                             <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                            Il est important de prendre soin du patient, d’être suivi par le patient, mais cela arrivera à un moment tel qu’il y aura beaucoup de travail et de douleur. Duis ou Irure souffrent dans la réprimande
                             </p>
                         </div>
 
@@ -219,25 +219,25 @@
 
                             <div class="faq-item faq-active">
 
-                                <h3><span>01</span> Non consectetur a erat nam at lectus urna duis?</h3>
+                                <h3><span>01</span>Ne sera-t-il pas suivi d'un été pour mais d'une urne à deux ?</h3>
                                 <div class="faq-content">
-                                    <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                                    <p>Le prix du produit est très bas. L'urne ciblée par le temps id volutpat lacus laoreet ne sera pas prise en charge par la femme enceinte. Lit Venenatis grande urne fringilla porttitor rhoncus douleur pure pas.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3><span>02</span> Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h3>
+                                <h3><span>02</span> Le chocolat brûle-t-il à cause de la maladie maintenant dans la bouche des enfants ?</h3>
                                 <div class="faq-content">
-                                    <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                                    <p>À la douleur doit s’ajouter l’éducation des personnes vivant avec la maladie. Parfois, ce n'est qu'une question de temps. Fragilla phasellus faucibus chocolat eleifend jusqu'au prix. C'est un grand atout pour les enfants. Mauris ultrices eros au cours de la messe universitaire tincidunt dui.</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
 
                             <div class="faq-item">
-                                <h3><span>03</span> Dolor sit amet consectetur adipiscing elit pellentesque?</h3>
+                                <h3><span>03</span> La douleur va-t-elle être suivie par l’éducation des étudiants ?/h3>
                                 <div class="faq-content">
-                                    <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                                    <p>Eleifend n'est nulle part en mesure de s'inquiéter des flèches de basket de la clinique. Pour tout l'élément de l'oreiller. S'il n'y a pas de carquois dans le diamètre, les joueurs le recevront. Rutrum terlus pellentesque eu tincidunt. Urne de lit vallée à deux vallées. Employé d'Urna dans l'élément du football facile mais déteste la maladie qui</p>
                                 </div>
                                 <i class="faq-toggle bi bi-chevron-right"></i>
                             </div><!-- End Faq item-->
@@ -268,9 +268,9 @@
 
                     <div class="col-lg-6 pt-4 pt-lg-0 content">
 
-                        <h3>Voluptatem dignissimos provident quasi corporis voluptas</h3>
+                        <h3>Ils procurent les plaisirs les plus dignes, comme les plaisirs corporels</h3>
                         <p class="fst-italic">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                        Il est important de prendre soin du patient, d’être suivi par le patient, mais cela arrivera à un moment tel qu’il y aura beaucoup de travail et de douleur.
                         </p>
 
                         <div class="skills-content skills-animation">
@@ -329,23 +329,23 @@
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-activity icon"></i></div>
                             <h4><a href="" class="stretched-link">Lorem Ipsum</a></h4>
-                            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+                            <p>Quelles douleurs et quels ennuis endureront ceux qui ont adouci et corrompu leurs plaisirs</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-bounding-box-circles icon"></i></div>
-                            <h4><a href="" class="stretched-link">Sed ut perspici</a></h4>
-                            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+                            <h4><a href="" class="stretched-link">Mais pour être clair</a></h4>
+                            <p>Des doutes ou une douleur dans une réprimande dans un plaisir veut être un cheveu de douleur</p>
                         </div>
                     </div><!-- End Service Item -->
 
                     <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-calendar4-week icon"></i></div>
-                            <h4><a href="" class="stretched-link">Magni Dolores</a></h4>
-                            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+                            <h4><a href="" class="stretched-link">Grandes douleurs</a></h4>
+                            <p>A moins qu'ils ne soient aveuglés par la luxure, ils ne se manifestent pas, ils sont en faute ceux qui font leur devoir</p>
                         </div>
                     </div><!-- End Service Item -->
 
@@ -353,7 +353,7 @@
                         <div class="service-item position-relative">
                             <div class="icon"><i class="bi bi-broadcast icon"></i></div>
                             <h4><a href="" class="stretched-link">Nemo Enim</a></h4>
-                            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+                            <p>Mais en vérité, nous accusons et conduisons avec une juste haine ceux qui méritent d'être flattés.</p>
                         </div>
                     </div><!-- End Service Item -->
 
@@ -363,7 +363,7 @@
 
         </section><!-- /Services Section -->
 
-        <!-- Call To Action Section -->
+        <!-- Appel à l'action Section -->
         <section id="call-to-action" class="call-to-action section dark-background">
 
             <img src="{{ asset('img/cta-bg.jpg') }}" alt="">
@@ -372,17 +372,17 @@
 
                 <div class="row" data-aos="zoom-in" data-aos-delay="100">
                     <div class="col-xl-9 text-center text-xl-start">
-                        <h3>Call To Action</h3>
+                        <h3>Appel à l'action</h3>
                         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                     </div>
                     <div class="col-xl-3 cta-btn-container text-center">
-                        <a class="cta-btn align-middle" href="#">Call To Action</a>
+                        <a class="cta-btn align-middle" href="#">Appel à l'action</a>
                     </div>
                 </div>
 
             </div>
 
-        </section><!-- /Call To Action Section -->
+        </section><!-- /Appel à l'action Section -->
 
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio section">
@@ -390,7 +390,7 @@
             <!-- Section Title -->
             <div class="container section-title" data-aos="fade-up">
                 <h2>Portfolio</h2>
-                <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+                <p>Ses besoins résultent de quelque chose dont il veut échapper</p>
             </div><!-- End Section Title -->
 
             <div class="container">
@@ -410,7 +410,7 @@
                             <img src="{{ asset('img/masonry-portfolio/masonry-portfolio-1.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>App 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <p>Très bien faitt</p>
                                 <a href="{{ asset('img/masonry-portfolio/masonry-portfolio-1.jpg') }}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
@@ -420,7 +420,7 @@
                             <img src="{{ asset('img/masonry-portfolio/masonry-portfolio-2.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Product 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <p>Très bien faitt</p>
                                 <a href="{{ asset('img/masonry-portfolio/masonry-portfolio-2.jpg') }}" title="Product 1" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
@@ -430,7 +430,7 @@
                             <img src="{{ asset('img/masonry-portfolio/masonry-portfolio-3.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Branding 1</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <p>Très bien faitt</p>
                                 <a href="{{ asset('img/masonry-portfolio/masonry-portfolio-3.jpg') }}" title="Branding 1" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
@@ -440,7 +440,7 @@
                             <img src="{{ asset('img/masonry-portfolio/masonry-portfolio-4.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>App 2</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <p>Très bien faitt</p>
                                 <a href="{{ asset('img/masonry-portfolio/masonry-portfolio-4.jpg') }}"title="App 2" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
@@ -450,7 +450,7 @@
                             <img src="{{ asset('img/masonry-portfolio/masonry-portfolio-5.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Product 2</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <p>Très bien faitt</p>
                                 <a href="{{ asset('img/masonry-portfolio/masonry-portfolio-5.jpg') }}" title="Product 2" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
@@ -460,7 +460,7 @@
                             <img src="{{ asset('img/masonry-portfolio/masonry-portfolio-6.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Branding 2</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <p>Très bien faitt</p>
                                 <a href="{{ asset('img/masonry-portfolio/masonry-portfolio-6.jpg') }}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
@@ -470,7 +470,7 @@
                             <img src="{{ asset('img/masonry-portfolio/masonry-portfolio-7.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>App 3</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <p>Très bien faitt</p>
                                 <a href="{{ asset('img/masonry-portfolio/masonry-portfolio-7.jpg') }}" title="App 3" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
@@ -480,7 +480,7 @@
                             <img src="{{ asset('img/masonry-portfolio/masonry-portfolio-8.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Product 3</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <p>Très bien faitt</p>
                                 <a href="{{ asset('img/masonry-portfolio/masonry-portfolio-8.jpg') }}"title="Product 3" data-gallery="portfolio-gallery-product" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
@@ -490,7 +490,7 @@
                             <img src="{{ asset('img/masonry-portfolio/masonry-portfolio-9.jpg') }}" class="img-fluid" alt="">
                             <div class="portfolio-info">
                                 <h4>Branding 3</h4>
-                                <p>Lorem ipsum, dolor sit</p>
+                                <p>Très bien faitt</p>
                                 <a href="{{ asset('img/masonry-portfolio/masonry-portfolio-9.jpg') }}" title="Branding 2" data-gallery="portfolio-gallery-branding" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                                 <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                             </div>
