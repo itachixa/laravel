@@ -20,7 +20,7 @@
             margin-bottom: 20px;
         }
         .hero {
-            background: url('https://via.placeholder.com/1200x400') no-repeat center center;
+            background: url('https://i.pinimg.com/564x/6a/fd/44/6afd449620d9c1568335634922593d20.jpg') no-repeat center center;
             background-size: cover;
             color: white;
             padding: 100px 0;
@@ -62,6 +62,10 @@
         }
         footer {
             margin-top: 40px;
+        }
+        img{
+            width:300px;
+            height: 240px;
         }
     </style>
 </head>
@@ -105,21 +109,22 @@
                     <div class="icon">
                         <i class="fa fa-cogs"></i>
                     </div>
-                    <h3>Service 1</h3>
+                    <h3>Marketing Digital</h3>
                     <p>Nous offrons un service de qualité supérieure pour répondre à vos besoins techniques.</p>
                 </div>
                 <div class="col-md-4 service-item">
                     <div class="icon">
                         <i class="fa fa-briefcase"></i>
                     </div>
-                    <h3>Service 2</h3>
+                    <h3> Support Technique</h3>
                     <p>Notre équipe est spécialisée dans le conseil pour améliorer vos performances.</p>
                 </div>
                 <div class="col-md-4 service-item">
                     <div class="icon">
                         <i class="fa fa-lightbulb-o"></i>
                     </div>
-                    <h3>Service 3</h3>
+                    <h3>Formation
+                    </h3>
                     <p>Innovation et créativité sont au cœur de tout ce que nous faisons.</p>
                 </div>
             </div>
@@ -132,19 +137,19 @@
             <h2 class="text-center">Ce que nos clients disent</h2>
             <div class="row">
                 <div class="col-md-4 testimonial-item">
-                    <img src="https://via.placeholder.com/100" alt="Client 1">
+                    <img src="{{ asset('img/temoin2.jpg') }}" alt="Client 1">
                     <p>"Le service était excellent et je suis extrêmement satisfait des résultats."</p>
-                    <h5>Client 1</h5>
+                    <h5> Mariam Traoré</h5>
                 </div>
                 <div class="col-md-4 testimonial-item">
-                    <img src="https://via.placeholder.com/100" alt="Client 2">
+                    <img src="{{ asset('img/temoin1.jpg') }}" alt="Client 2">
                     <p>"L'équipe a surpassé mes attentes et a livré un travail de qualité."</p>
-                    <h5>Client 2</h5>
+                    <h5> Charles Kouyaté</h5>
                 </div>
                 <div class="col-md-4 testimonial-item">
-                    <img src="https://via.placeholder.com/100" alt="Client 3">
+                    <img src="img/temoin3.jpg" alt="Client 3">
                     <p>"Je recommande vivement cette entreprise pour son professionnalisme."</p>
-                    <h5>Client 3</h5>
+                    <h5>Camille Dupont</h5>
                 </div>
             </div>
         </div>
