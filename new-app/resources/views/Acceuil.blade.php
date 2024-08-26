@@ -29,6 +29,7 @@
         .hero h1 {
             font-size: 50px;
             margin-bottom: 20px;
+            color: #f5f5f5;
         }
         .services {
             padding: 60px 0;
