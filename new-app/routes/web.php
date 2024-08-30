@@ -7,17 +7,14 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Route::get('/home', function () {
     return "Bienvenue";
 });
 
-Route::get('/image', function () {
-    return view('Home1_page');
-});
 
 Route::get('/home', function () {
     return view('Home');
@@ -52,11 +49,8 @@ Route::get('/Acceuil', function () {
     return view('users/profile');
 })->name('Acceuil');
 
-Route::get('/Acceuile', function () {
-    return view('Acceuil');
-})->name('Acceuile');
 
-Route::get('/Home', function () {
+Route::get('/', function () {
     return view('Home');
 })->name('Home');
 
@@ -74,6 +68,9 @@ Route::get('/test-db', function () {
         return 'Échec de la connexion MySQL : ' . $e->getMessage();
     }
 });
+Route::get('/home', function () {
+    return view('home');
+})->name('home');
 
 
 Route::get('/users', [UserController::class, 'list'])->name('users.list');
@@ -89,10 +86,12 @@ Route::get('/user/liste', function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/profile', [UserController::class, 'profile'])->name('user.profile');
     Route::put('/profile/update', [UserController::class, 'update'])->name('user.update');
-
-    Route::get('/home', function () {
-        return view('home');
-    })->name('home');
+    Route::get('/image', function () {
+        return view('Home1_page');
+    })->name('image');    
+    Route::get('/Acceuile', function () {
+        return view('Acceuil');
+    })->name('Acceuile');  
 
     Route::get('/about', function () {
         return view('about');

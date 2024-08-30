@@ -7,7 +7,7 @@
 <body>
     <div class="container">
         <div class="logo-container">
-            <img src="{{ asset('images/icone.png') }}" alt="Google Doodle">
+            <img src="{{ asset('img/icone.png') }}" alt="Google Doodle">
         </div>
         
         <input type="text" class="search-input" placeholder="Rechercher sur Google ou saisir une URL">
