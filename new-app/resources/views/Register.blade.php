@@ -51,6 +51,7 @@
         <input type="submit" value="REGISTER">
     </div>
 </form>
+<a href="Acceuile"><button type="submit">Connexion</button></a>
 
             <div class="login">
                 Already have an account?

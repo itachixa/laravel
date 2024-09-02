@@ -19,6 +19,9 @@
         header {
             margin-bottom: 20px;
         }
+        .navbar-dark .navbar-nav .nav-link {
+            color: #ffffff;
+        }
         .hero {
             background: url('https://i.pinimg.com/564x/6a/fd/44/6afd449620d9c1568335634922593d20.jpg') no-repeat center center;
             background-size: cover;
@@ -71,7 +74,7 @@
     </style>
 </head>
 <body>
-    <header>
+    
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -93,9 +96,7 @@
                 </ul>
             </div>
         </nav>
-    </header>
-
-    <!-- Hero Section -->
+    
     <div class="hero">
         <h1>Bienvenue sur notre Site Web</h1>
         <p>Nous offrons des services exceptionnels pour vous aider à atteindre vos objectifs.</p>
@@ -124,8 +125,7 @@
                     <div class="icon">
                         <i class="fa fa-lightbulb-o"></i>
                     </div>
-                    <h3>Formation
-                    </h3>
+                    <h3>Formation</h3>
                     <p>Innovation et créativité sont au cœur de tout ce que nous faisons.</p>
                 </div>
             </div>
@@ -150,7 +150,7 @@
                 <div class="col-md-4 testimonial-item">
                     <img src="img/temoin3.jpg" alt="Client 3">
                     <p>"Je recommande vivement cette entreprise pour son professionnalisme."</p>
-                    <h5>Camille Dupont</h5>
+                    <h5> Camille Dupont</h5>
                 </div>
             </div>
         </div>
