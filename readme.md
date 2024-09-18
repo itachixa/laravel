@@ -8,8 +8,6 @@
 
 ### 1. Tic Tac Toe
 
-<video src="video.mp4" alt="demo" autoplay="true">
+<video src="video.mp4" autoplay muted loop playsinline></video>
 
-
-- **Description**: un projet simple qui m'a permit d'apprendre la construction de page en laravel et l'utilsation de midlware , de base de donné(migration) et qui m'a permit aussi de faire des todo liste  
----
+- **Description**: Un projet simple qui m'a permis d'apprendre la création de pages avec Laravel, l'utilisation des middlewares, la gestion des bases de données (migrations) et la réalisation d'une todo liste.
