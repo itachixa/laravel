@@ -7,9 +7,9 @@ use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\DB;
 use App\Models\User;
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/Welcome', function () {
+    return view('welcome');
+})->name('Welcome');
 
 Route::get('/home', function () {
     return "Bienvenue";
@@ -124,3 +124,7 @@ Route::get('/services', function () {
 Route::get('/profile', function () {
     return view('user.profile');
 })->name('user.profile');
+
+Route::get('/portofolio', function () {
+    return view('portofolio');
+})->name('portofolio');
